@@ -3,15 +3,14 @@ programa
 	funcao inicio()
 	{
 		inteiro candidato1 = 0,candidato2 = 0, candidato3 = 0
-		inteiro contador = 0,
-		inteiro numeroCandidato, votoNulo = 0, votoBranco = 0, encerraVotacao, percentualVotos
+		inteiro contador = 0, numeroCandidato, votoNulo = 0, votoBranco = 0, encerraVotacao, percentualVotos
 		escreva("Digite o número do candidato: ")
 		leia(numeroCandidato)
 
 
 		escolha(numeroCandidato){
 
-		faca
+		
 				caso 1: 
 				candidato1++
 				escreva("Candidato 1 recebeu um voto")
@@ -42,10 +41,7 @@ programa
 
 				caso 10:
 				escreva("Votação encerrada!") 
-
-				se 
-				
-		}
+}
 }
 }
 /* $$$ Portugol Studio $$$ 
@@ -53,7 +49,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 782; 
+ * @POSICAO-CURSOR = 288; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
