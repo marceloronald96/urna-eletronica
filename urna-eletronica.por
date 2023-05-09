@@ -22,8 +22,8 @@ programa
 		limpa()
 
 		
-	
-	     enquanto (encerraVotacao == falso ){   
+	faca
+	  {   
 			escreva("Digite o número do candidato: ")
 			leia(numeroCandidato)
 
@@ -82,7 +82,7 @@ programa
 						pare
 			}
 			
-	     }
+	     }enquanto (encerraVotacao == falso )
 	     se(candidato1 > candidato2 e candidato1 > candidato3){
 	     	candidato1 = candidato1 + votoBranco
 	     	escreva ("Candidato 1 ganhou com: ", candidato1 , " " , "votos \n")
@@ -125,9 +125,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1388; 
+ * @POSICAO-CURSOR = 1769; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {candidato1, 5, 10, 10}-{candidato2, 5, 25, 10}-{candidato3, 5, 41, 10}-{votoNulo, 5, 57, 8}-{votoBranco, 5, 71, 10}-{totalVotos, 5, 87, 10};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
