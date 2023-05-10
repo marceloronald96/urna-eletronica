@@ -1,5 +1,7 @@
 programa
+	
 {
+	inclua biblioteca Sons
 	funcao inicio()
 	{
 		inteiro candidato1 = 0,candidato2 = 0, candidato3 = 0, votoNulo = 0, votoBranco = 0, totalVotos = 0
@@ -32,6 +34,7 @@ programa
 						candidato1++
 						totalVotos++
 						escreva("Candidato 1 recebeu um voto\n")
+						somConfirmacao()
 						limpa()
 						pare
 	
@@ -39,6 +42,7 @@ programa
 						candidato2++
 						totalVotos++
 						escreva("Candidato 2 recebeu um voto\n")
+						somConfirmacao()
 						limpa()
 						pare
 		
@@ -46,6 +50,7 @@ programa
 						candidato3++
 						totalVotos++
 						escreva("Candidato 3 recebeu um voto\n")
+						somConfirmacao()
 						limpa()
 					     pare
 	
@@ -53,6 +58,7 @@ programa
 						votoNulo++
 						totalVotos++
 						escreva("Voto Nulo\n")
+						somConfirmacao()
 					     limpa()
 						pare
 	
@@ -60,6 +66,7 @@ programa
 						votoBranco++
 						totalVotos++
 						escreva("Voto Branco\n")
+						somConfirmacao()
 					     limpa()
 						pare
 	
@@ -68,17 +75,19 @@ programa
 					escreva(">> Deseja REALMENTE encerrar a votação?\n")
 					escreva(">> Digite S para 'sim': ")
 					leia(confirmaEncerramento)
+					somConfirmacao()
 
 					se (confirmaEncerramento == 's' ou confirmaEncerramento == 'S'){
 						encerraVotacao = verdadeiro
 						escreva ("VOTAÇÃO ENCERRADA! \n")
+						
 
 					 pare
 					}
 	
 					caso contrario:
 						escreva("VOTAÇÃO INVALIDA; vote novamente\n")
-						limpa()
+						somConfirmacao()
 						pare
 			}
 			
@@ -97,6 +106,7 @@ programa
 	     	
 	     }senao se (candidato1 == candidato2 e candidato1 == candidato3 e candidato2 == candidato3){
 	     	escreva ("Empate!")
+	     	somConfirmacao()
 	     }
 
 	     soma = (candidato1+candidato2+candidato3+votoNulo+votoBranco)
@@ -116,8 +126,23 @@ programa
 
 	     votoBranco = percentualBranco 
 	     escreva ("Votos em branco", "  ", votoBranco," % ", "dos votos \n")
+	     somConfirmacao()
 		
 }
+
+		funcao vazio somConfirmacao()
+		{
+
+		inteiro tempoDeEsperaSom = 2000
+
+		inteiro somDeConfirmacao = Sons.carregar_som ("audio/confirma-urna.mp3")
+
+		Sons.reproduzir_som(somDeConfirmacao, falso)
+
+		}
+
+
+
 }
 
 /* $$$ Portugol Studio $$$ 
@@ -125,9 +150,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1769; 
+ * @POSICAO-CURSOR = 1932; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {candidato1, 7, 10, 10}-{candidato2, 7, 25, 10}-{candidato3, 7, 41, 10}-{votoNulo, 7, 57, 8}-{votoBranco, 7, 71, 10};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz;
  */
