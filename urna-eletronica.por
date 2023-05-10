@@ -2,16 +2,18 @@ programa
 	
 {
 	inclua biblioteca Sons
+	inclua biblioteca Util
+	
 	funcao inicio()
 	{
 		inteiro candidato1 = 0,candidato2 = 0, candidato3 = 0, votoNulo = 0, votoBranco = 0, totalVotos = 0
 		inteiro numeroCandidato, votacaoInvalida, calculoTotalVotos
-		logico encerraVotacao = falso 
+		logico encerraVotacao = falso , confirmaVoto = falso
 		cadeia nomeCandidato1, nomeCandidato2, nomeCandidato3
 
 		real percentualC1, percentualC2, percentualC3, percentualBranco, soma
 
-		caracter confirmaEncerramento = 'N'
+		caracter confirmaEncerramento = 'N' , confirmaVoto = 'N'
 
 		escreva ("Coloque o nome do Candidato 1: ")
 		leia(nomeCandidato1)
@@ -26,23 +28,36 @@ programa
 		
 	faca
 	  {   
+			escreva(">> ELEIÇÕES 2023<< \n")
+	  		escreva("> Opções de voto < \n")
+	  		escreva("1 | ",nomeCandidato1 ,"\n")
+	  		escreva("2 | ",nomeCandidato2 ,"\n")
+	  		escreva("3 | ",nomeCandidato3 ,"\n")
 			escreva("Digite o número do candidato: ")
 			leia(numeroCandidato)
 
 			escolha (numeroCandidato){
 					caso 1: 
 						candidato1++
+						escreva(">> DESEJA CONFIRMAR VOTO?\n")
+					     escreva(">> Digite S para 'SIM' ou N para 'NÃO' :")
+					     leia (confirmaVoto)
 						totalVotos++
 						escreva("Candidato 1 recebeu um voto\n")
-						somConfirmacao()
+						somConfirmacao(2000)
 						limpa()
+
+						se (confirmaVoto == 'S' ou confirmaVoto == 's'){
+						confirmaVoto = verdadeiro
+						escreva ("VOTO CONFIRMADO \n")
+						somConfirmacao(4000)
 						pare
-	
+						}
 					caso 2:
 						candidato2++
 						totalVotos++
 						escreva("Candidato 2 recebeu um voto\n")
-						somConfirmacao()
+						somConfirmacao(2000)
 						limpa()
 						pare
 		
@@ -50,7 +65,7 @@ programa
 						candidato3++
 						totalVotos++
 						escreva("Candidato 3 recebeu um voto\n")
-						somConfirmacao()
+						somConfirmacao(2000)
 						limpa()
 					     pare
 	
@@ -58,7 +73,7 @@ programa
 						votoNulo++
 						totalVotos++
 						escreva("Voto Nulo\n")
-						somConfirmacao()
+						somConfirmacao(2000)
 					     limpa()
 						pare
 	
@@ -66,7 +81,7 @@ programa
 						votoBranco++
 						totalVotos++
 						escreva("Voto Branco\n")
-						somConfirmacao()
+						somConfirmacao(2000)
 					     limpa()
 						pare
 	
@@ -75,11 +90,12 @@ programa
 					escreva(">> Deseja REALMENTE encerrar a votação?\n")
 					escreva(">> Digite S para 'sim': ")
 					leia(confirmaEncerramento)
-					somConfirmacao()
+					somConfirmacao(2000)
 
 					se (confirmaEncerramento == 's' ou confirmaEncerramento == 'S'){
 						encerraVotacao = verdadeiro
 						escreva ("VOTAÇÃO ENCERRADA! \n")
+						somConfirmacao(4000)
 						
 
 					 pare
@@ -87,7 +103,7 @@ programa
 	
 					caso contrario:
 						escreva("VOTAÇÃO INVALIDA; vote novamente\n")
-						somConfirmacao()
+						somConfirmacao(2000)
 						pare
 			}
 			
@@ -106,7 +122,7 @@ programa
 	     	
 	     }senao se (candidato1 == candidato2 e candidato1 == candidato3 e candidato2 == candidato3){
 	     	escreva ("Empate!")
-	     	somConfirmacao()
+	     	somConfirmacao(2000)
 	     }
 
 	     soma = (candidato1+candidato2+candidato3+votoNulo+votoBranco)
@@ -126,20 +142,23 @@ programa
 
 	     votoBranco = percentualBranco 
 	     escreva ("Votos em branco", "  ", votoBranco," % ", "dos votos \n")
-	     somConfirmacao()
+	     somConfirmacao(5000)
 		
 }
 
-		funcao vazio somConfirmacao()
+		funcao vazio somConfirmacao (inteiro tempoInformado)
 		{
 
-		inteiro tempoDeEsperaSom = 2000
+		inteiro tempoDeEsperaSom = tempoInformado * 1000
 
 		inteiro somDeConfirmacao = Sons.carregar_som ("audio/confirma-urna.mp3")
 
 		Sons.reproduzir_som(somDeConfirmacao, falso)
 
+		Util.aguarde(tempoInformado)
+
 		}
+		
 
 
 
@@ -150,9 +169,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1932; 
+ * @POSICAO-CURSOR = 928; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {candidato1, 7, 10, 10}-{candidato2, 7, 25, 10}-{candidato3, 7, 41, 10}-{votoNulo, 7, 57, 8}-{votoBranco, 7, 71, 10};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz;
  */
